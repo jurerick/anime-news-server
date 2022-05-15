@@ -28,11 +28,13 @@ The first time you run the Sail **up** command will take several minutes, but su
 
 ### News API
 This application is using [**News API**](https://newsapi.org/) service with a developer subscription. 
+
 Update the ```.env``` file in the root directory of the project and add ```NEWS_API_KEY```. 
 ```sh
 NEWS_API_KEY=put-here-your-api-key
 ```
 Register to [**News API**](https://newsapi.org/register) to get your API key.
+
 
 Once the application's Docker containers have been started, access the application in your web browser at: ```http://localhost```
 
