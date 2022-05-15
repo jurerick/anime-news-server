@@ -29,10 +29,12 @@ class NewsController extends Controller
         {
             $articles = $this->getArticles($result->collect('articles'), $keyword, $filter);
             
-            return [
-                'result' => $articles,
-                'total' => $result->object()->totalResults
-            ]; 
+            $total = ($filter === 'popular') ? Vote::count(): $result->object()->totalResults;
+
+            return response()->json([
+                'result' => $articles->values(),
+                'total' => $total
+            ]); 
         }
         
         return response()->json([
