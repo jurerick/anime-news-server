@@ -25,8 +25,8 @@ Route::get('/news/mock', [NewsController::class, 'mock']);
 Route::get('/news/page/{page}/limit/{limit}', [NewsController::class, 'index'])
     ->where(['page' => '[0-9]+', 'limit' => '[0-9]+']);
 
-Route::get('/news/popular/page/{page}/limit/{limit}', [NewsController::class, 'popular'])
-    ->where(['page' => '[0-9]+', 'limit' => '[0-9]+']);
+Route::get('/news/popular/page/{page}/limit/{limit}/{sort?}', [NewsController::class, 'popular'])
+    ->where(['page' => '[0-9]+', 'limit' => '[0-9]+', 'sort'=> '[a-z]{3,4}']);
 
 Route::post('/votes', [VoteController::class, 'store']);
 Route::put('/votes', [VoteController::class, 'update']);

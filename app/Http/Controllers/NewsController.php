@@ -13,13 +13,13 @@ class NewsController extends Controller
     }  
 
 
-    public function popular ($page, $limit) 
+    public function popular ($page, $limit, $sort) 
     {
-        return $this->getNews($page, $limit, 'popular');
+        return $this->getNews($page, $limit, 'popular', $sort);
     }
 
 
-    private function getNews($page, $limit, $filter = null) 
+    private function getNews($page, $limit, $filter = null, $sort = null) 
     {
         $keyword = config('news.default_keyword');
 
@@ -28,6 +28,15 @@ class NewsController extends Controller
         if($result->object()->status === 'ok') 
         {
             $articles = $this->getArticles($result->collect('articles'), $keyword, $filter);
+
+            if ($sort === 'desc') 
+            {
+                $articles = $articles->sortByDesc('voteCount');
+            }
+            else if ($sort === 'asc') 
+            {
+                $articles = $articles->sortBy('voteCount');
+            }
             
             $total = ($filter === 'popular') ? Vote::count(): $result->object()->totalResults;
 
