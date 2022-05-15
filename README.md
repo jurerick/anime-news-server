@@ -10,7 +10,7 @@ This is a [**Laravel**](https://laravel.com/) powered application.
 ## Get Started
 
 ### Docker Desktop
-Install [**Docker Desktop**](https://www.docker.com/products/docker-desktop/)
+Install [**Docker Desktop**](https://www.docker.com/products/docker-desktop/) on your local machine.
 
 ### git clone
 Clone the repository by typing in your terminal: 
