@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-$url = parse_url(get_env('CLEARDB_DATABASE_URL'));
+$url = parse_url(getenv('CLEARDB_DATABASE_URL'));
 
 $host = ($url["host"]) ? $url["host"]: env('DB_HOST', '127.0.0.1');
 $username = ($url["user"]) ? $url["user"]: env('DB_USERNAME', 'forge');
